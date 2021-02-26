@@ -6,7 +6,7 @@
     "url": "https://github.com/GimpArm/hassio-addons",
     "arch": ["armhf", "armv7", "aarch64", "amd64"],
     "startup": "application",
-	"services": [
+    "services": [
         "mqtt:need"
     ],
     "boot": "auto",
@@ -59,19 +59,19 @@
             ]
         }
     },
-	"schema": {
-		"SmartFriends": {
-			"Host": "str",
-			"Port": "int",
-			"Username": "str",
-			"Password": "password",
-			"CSymbol": "str",
-			"CSymbolAddon": "str",
-			"ShcVersion": "str",
-			"ShApiVersion": "str"
-		},
-		"Mqtt": {
-		    "BaseTopic": "str",
+    "schema": {
+        "SmartFriends": {
+            "Host": "str",
+            "Port": "int",
+            "Username": "str",
+            "Password": "password",
+            "CSymbol": "str",
+            "CSymbolAddon": "str",
+            "ShcVersion": "str",
+            "ShApiVersion": "str"
+        },
+        "Mqtt": {
+            "BaseTopic": "str",
             "Server": "str",
             "Port": "int",
             "User": "str",
@@ -99,6 +99,7 @@
                     }
                 }
             ]
-	},
+        }
+    },
     "image": "gimparm/{arch}-smartfriends-mqtt"
 }
