@@ -1,6 +1,6 @@
 {
 	"name": "SmartFriends REST API",
-	"version": "1.0",
+	"version": "2.0",
 	"slug": "smartfriends-rest-api",
 	"description": "Control your Smart Friends devices through a simple REST API",
 	"url": "https://github.com/GimpArm/hassio-addons",
@@ -38,5 +38,5 @@
 			"shApiVersion": "str"
 		}
 	},
-	"image": "gimparm/smartfriends-{arch}-rest-api"
+	"image": "gimparm/{arch}-smartfriends-rest-api"
 }
