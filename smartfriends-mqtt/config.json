@@ -59,47 +59,6 @@
             ]
         }
     },
-    "schema": {
-        "SmartFriends": {
-            "Host": "str",
-            "Port": "int",
-            "Username": "str",
-            "Password": "password",
-            "CSymbol": "str",
-            "CSymbolAddon": "str",
-            "ShcVersion": "str",
-            "ShApiVersion": "str"
-        },
-        "Mqtt": {
-            "BaseTopic": "str",
-            "Server": "str",
-            "Port": "int",
-            "User": "str",
-            "Password": "password",
-            "UseSsl": "bool",
-            "DeviceMaps": [
-                {
-                    "Id": "int",
-                    "Type": "str",
-                    "Class": "str?"
-                }
-            ],
-            "TypeTemplates": [
-                {
-                    "Type": "str",
-                    "Class": "str?",
-                    "Parameters": {
-                        "value_template": "str?",
-                        "position_topic": "str?",
-                        "set_position_topic": "str?",
-                        "set_position_template": "str?",
-                        "payload_stop": "str?",
-                        "payload_open": "str?",
-                        "payload_close": "str?"
-                    }
-                }
-            ]
-        }
-    },
+    "schema": false,
     "image": "gimparm/{arch}-smartfriends-mqtt"
 }
