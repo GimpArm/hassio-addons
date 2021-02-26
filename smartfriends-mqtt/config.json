@@ -28,7 +28,14 @@
             "Port": 1883,
             "User": null,
             "Password": null,
-            "UseSsl": false
+            "UseSsl": false,
+            "DeviceMaps": [
+                {
+                    "Id": 4358,
+                    "Type": "cover",
+                    "Class": "shutter"
+                }
+            ]
         }
     },
     "schema": {
@@ -48,7 +55,14 @@
             "Port": "int",
             "User": "str",
             "Password": "password",
-            "UseSsl": "bool"
+            "UseSsl": "bool",
+            "DeviceMaps": [
+                {
+                    "Id": "int",
+                    "Type": "str",
+                    "Class": "str?"
+                }
+            ]
         }
     },
     "image": "gimparm/{arch}-smartfriends-mqtt"
