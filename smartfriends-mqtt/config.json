@@ -69,7 +69,7 @@
             "mqtt": {
                 "BaseTopic": "str",
                 "Server": "str",
-                "Port": "int,
+                "Port": "int",
                 "User": "str",
                 "Password": "password",
                 "UseSsl": "bool",
