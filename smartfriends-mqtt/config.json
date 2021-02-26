@@ -54,41 +54,6 @@
                     }
                 }
             ]
-        },
-        "schema": {
-            "SmartFriends": {
-                "Host": "str",
-                "Port": "int",
-                "Username": "str",
-                "Password": "password",
-                "CSymbol": "str",
-                "CSymbolAddon": "str",
-                "ShcVersion": "str",
-                "ShApiVersion": "str"
-            },
-            "Mqtt": {
-                "BaseTopic": "str",
-                "Server": "str",
-                "Port": "int",
-                "User": "str",
-                "Password": "password",
-                "UseSsl": "bool",
-                "DeviceMaps": [
-                    {
-                        "Id": "int",
-                        "Type": "str",
-                        "Class": "str?"
-                    }
-                ],
-                "TypeTemplates": [
-                    {
-                        "Type": "str",
-                        "Class": "str?",
-                        "Parameters": {
-                        }
-                    }
-                ]
-            }
         }
     },
     "image": "gimparm/{arch}-smartfriends-mqtt"
