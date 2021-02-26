@@ -27,15 +27,15 @@
 		}
 	},
 	"schema": {
-		"smartFriends": {
-			"host": "str",
-			"port": "int",
-			"username": "str",
-			"password": "password",
-			"cSymbol": "str",
-			"cSymbolAddon": "str",
-			"shcVersion": "str",
-			"shApiVersion": "str"
+		"SmartFriends": {
+			"Host": "str",
+			"Port": "int",
+			"Username": "str",
+			"Password": "password",
+			"CSymbol": "str",
+			"CSymbolAddon": "str",
+			"ShcVersion": "str",
+			"ShApiVersion": "str"
 		}
 	},
 	"image": "gimparm/{arch}-smartfriends-rest-api"
