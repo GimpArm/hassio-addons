@@ -108,7 +108,7 @@ As it can be seen, actions are send using the device ID.
 
 This is a simple use case: Controlling roller shutters (alias covers or rolling shutters...)
 
-![covers](https://github.com/GimpArm/hassio-addons/main/smartfriends-rest-api/images/doc01.png)
+![covers](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc01.png)
 
 The example shown above needs the creation of 3 elements:
 - shell commands to interract with the REST API (locally)
