@@ -56,13 +56,7 @@
             "User": "str",
             "Password": "password",
             "UseSsl": "bool",
-            "DeviceMaps": [
-                {
-                    "Id": "int",
-                    "Type": "str",
-                    "Class": "str?"
-                }
-            ]
+            "DeviceMaps": [ ]
         }
     },
     "image": "gimparm/{arch}-smartfriends-mqtt"
