@@ -23,6 +23,17 @@
             "ShApiVersion": "2.20"
         }
     },
-    "schema": false,
+	"schema": {
+		"SmartFriends": {
+			"Host": "str",
+			"Port": "int",
+			"Username": "str",
+			"Password": "password",
+			"CSymbol": "str",
+			"CSymbolAddon": "str",
+			"ShcVersion": "str",
+			"ShApiVersion": "str"
+		}
+	},
     "image": "gimparm/{arch}-smartfriends-mqtt"
 }
