@@ -8,10 +8,10 @@
 	"startup": "application",
 	"boot": "auto",
 	"ports": {
-		"5001/tcp": 5001
+		"80/tcp": 5001
 	},
 	"ports_description": {
-		"5001/tcp": "REST API port"
+		"80/tcp": "REST API port"
 	},
 	"host_network": "false",
 	"options": {
