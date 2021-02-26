@@ -5,7 +5,10 @@
     "description": "Control your Smart Friends devices through MQTT",
     "url": "https://github.com/GimpArm/hassio-addons",
     "arch": ["armhf", "armv7", "aarch64", "amd64"],
-    "startup": "system",
+    "startup": "application",
+	"services": [
+        "mqtt:need"
+    ],
     "boot": "auto",
     "host_network": "false",
     "options": {

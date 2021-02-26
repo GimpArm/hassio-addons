@@ -5,7 +5,7 @@
 	"description": "Control your Smart Friends devices through a simple REST API",
 	"url": "https://github.com/GimpArm/hassio-addons",
 	"arch": ["armhf", "armv7", "aarch64", "amd64"],
-	"startup": "system",
+	"startup": "application",
 	"boot": "auto",
 	"ports": {
 		"5001/tcp": 5001
