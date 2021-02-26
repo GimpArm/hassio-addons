@@ -1,0 +1,95 @@
+{
+    "name": "SmartFriends MQTT",
+    "version": "1.0",
+    "slug": "smartfriends-mqtt",
+    "description": "Control your Smart Friends devices through MQTT",
+    "url": "https://github.com/GimpArm/hassio-addons",
+    "arch": ["armhf", "armv7", "aarch64", "amd64"],
+    "startup": "system",
+    "boot": "auto",
+    "host_network": "false",
+    "options": {
+        "SmartFriends": {
+            "Host": "smartfriends.local",
+            "Port": 4300,
+            "Username": null,
+            "Password": null,
+            "CSymbol": "D19033",
+            "CSymbolAddon": "i",
+            "ShcVersion": "2.21.1",
+            "ShApiVersion": "2.20"
+        },
+        "Mqtt": {
+            "BaseTopic": "smartfriends2mqtt",
+            "Server": "homeassistant",
+            "Port": 1883,
+            "User": "mqtt",
+            "Password": "password",
+            "UseSsl": false,
+            "DeviceMaps": [
+                {
+                    "Id": 9999,
+                    "Type": "cover",
+                    "Class": "shutter"
+                }
+            ],
+            "TypeTemplates": [
+                {
+                    "Type": "cover",
+                    "Class": "shutter",
+                    "Parameters": {
+                        "value_template": "{{ 100 - value_json.analogValue }}",
+                        "position_topic": "{baseTopic}/{deviceId}",
+                        "set_position_topic": "{baseTopic}/{deviceId}/set",
+                        "set_position_template": "{{ 100 - position }}",
+                        "payload_stop": "Stop",
+                        "payload_open": "Up",
+                        "payload_close": "Down"
+                    }
+                },
+                {
+                    "Type": "switch",
+                    "Parameters": {
+                        "value_template": "{{ value_json.state }}"
+                    }
+                }
+            ]
+        },
+        "schema": {
+            "SmartFriends": {
+                "Host": "str",
+                "Port": "int",
+                "Username": "str",
+                "Password": "password",
+                "CSymbol": "str",
+                "CSymbolAddon": "str",
+                "ShcVersion": "str",
+                "ShApiVersion": "str"
+            },
+            "mqtt": {
+                "BaseTopic": "str",
+                "Server": "str",
+                "Port": "int,
+                "User": "str",
+                "Password": "password",
+                "UseSsl": "bool",
+                "DeviceMaps": [
+                    {
+                        "Id": "int,
+                        "Type": "str",
+                        "Class": "str?"
+                    }
+                ],
+                "TypeTemplates": [
+                    {
+                        "Type": "str",
+                        "Class": "str?",
+                        "Parameters": {
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "image": "gimparm/smartfriends-{arch}-mqtt"
+}
