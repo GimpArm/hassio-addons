@@ -6,11 +6,11 @@ This add-on creates a link between Hassio and Smart Friends Box with a simple RE
 Follow these simple steps in order to get it up and running:
 ### Add the repository
 - Open the supervisor:
-  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/smartfriends-rest-api/images/doc02.png)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc02.png)
 - Open the add-on store and go to repositories:
-  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/smartfriends-rest-api/images/doc03.png)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc03.png)
 - Add GimpArm addons repository: https://github.com/gimparm/hassio-addons
-  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/smartfriends-rest-api/images/doc04.png)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc04.png)
 - The SmartFriends REST API add-on should now be visible in the store
 
 ### Installation and first start
@@ -32,7 +32,7 @@ Follow these simple steps in order to get it up and running:
   **Extra API parameters**:
   In order to find these values, simply open the Smart Friends App and go to the information page as illustrated:
 
-  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/smartfriends-rest-api/images/doc00.jpg)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc00.jpg)
 
 ### Collect devices ID's
 Device ID's **are important**, they will be used to interact with the device itself.
