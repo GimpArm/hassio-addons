@@ -26,8 +26,8 @@
             "BaseTopic": "smartfriends2mqtt",
             "Server": "homeassistant",
             "Port": 1883,
-            "User": "mqtt",
-            "Password": "password",
+            "User": null,
+            "Password": null,
             "UseSsl": false,
             "DeviceMaps": [
                 {
