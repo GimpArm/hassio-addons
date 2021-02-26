@@ -75,7 +75,7 @@
                 "UseSsl": "bool",
                 "DeviceMaps": [
                     {
-                        "Id": "int,
+                        "Id": "int",
                         "Type": "str",
                         "Class": "str?"
                     }
