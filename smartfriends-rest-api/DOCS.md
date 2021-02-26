@@ -1,17 +1,17 @@
 # SmartFriends REST API
 This add-on creates a link between Hassio and Smart Friends Box with a simple REST API.
 
-## How to use the Schellenberg add-on?
+## How to use this add-on?
 
 Follow these simple steps in order to get it up and running:
 ### Add the repository
 - Open the supervisor:
-  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc02.png)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc02.png)
 - Open the add-on store and go to repositories:
-  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc03.png)
-- Add Aithusiast addons repository: https://github.com/airthusiast/hassio-addons
-  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc04.png)
-- The Schellenberg add-on should now be visible in the store
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc03.png)
+- Add GimpArm addons repository: https://github.com/gimparm/hassio-addons
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc04.png)
+- The SmartFriends REST API add-on should now be visible in the store
 
 ### Installation and first start
 - Install the add-on
@@ -32,7 +32,7 @@ Follow these simple steps in order to get it up and running:
   **Extra API parameters**:
   In order to find these values, simply open the Smart Friends App and go to the information page as illustrated:
 
-  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc00.jpg)
+  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc00.jpg)
 
 ### Collect devices ID's
 Device ID's **are important**, they will be used to interact with the device itself.
