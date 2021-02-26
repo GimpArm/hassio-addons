@@ -56,5 +56,6 @@
             ]
         }
     },
+	"schema": false,
     "image": "gimparm/{arch}-smartfriends-mqtt"
 }
