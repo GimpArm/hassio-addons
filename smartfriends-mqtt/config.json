@@ -20,7 +20,13 @@
             "CSymbol": "D19033",
             "CSymbolAddon": "i",
             "ShcVersion": "2.21.1",
-            "ShApiVersion": "2.20"
+            "ShApiVersion": "2.20",
+            "BaseTopic": "smartfriends2mqtt",
+            "Server": "ha.local",
+            "Port": 1883,
+            "User": null,
+            "Password": null,
+            "UseSsl": false
         }
     },
 	"schema": {
@@ -32,7 +38,13 @@
 			"CSymbol": "str",
 			"CSymbolAddon": "str",
 			"ShcVersion": "str",
-			"ShApiVersion": "str"
+			"ShApiVersion": "str",
+            "BaseTopic": "str",
+            "Server": "str",
+            "Port": "int",
+            "User": "str",
+            "Password": "password",
+            "UseSsl": "bool"
 		}
 	},
     "image": "gimparm/{arch}-smartfriends-mqtt"
