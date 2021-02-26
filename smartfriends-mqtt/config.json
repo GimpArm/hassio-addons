@@ -64,27 +64,6 @@
             ]
         }
     },
-    "schema": {
-        "SmartFriends": {
-            "Host": "str",
-            "Port": "int",
-            "Username": "str",
-            "Password": "password",
-            "CSymbol": "str",
-            "CSymbolAddon": "str",
-            "ShcVersion": "str",
-            "ShApiVersion": "str"
-        },
-        "Mqtt": {
-            "BaseTopic": "str",
-            "Server": "str",
-            "Port": "int",
-            "User": "str",
-            "Password": "password",
-            "UseSsl": "bool",
-            "DeviceMaps": [ ],
-            "TypeTemplates": [ ]
-        }
-    },
+    "schema": true,
     "image": "gimparm/{arch}-smartfriends-mqtt"
 }
