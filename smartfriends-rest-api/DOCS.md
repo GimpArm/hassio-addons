@@ -6,11 +6,11 @@ This add-on creates a link between Hassio and Smart Friends Box with a simple RE
 Follow these simple steps in order to get it up and running:
 ### Add the repository
 - Open the supervisor:
-  ![alt](images/doc02.png)
+  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc02.png)
 - Open the add-on store and go to repositories:
-  ![alt](images/doc03.png)
+  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc03.png)
 - Add Aithusiast addons repository: https://github.com/airthusiast/hassio-addons
-  ![alt](images/doc04.png)
+  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc04.png)
 - The Schellenberg add-on should now be visible in the store
 
 ### Installation and first start
@@ -32,7 +32,7 @@ Follow these simple steps in order to get it up and running:
   **Extra API parameters**:
   In order to find these values, simply open the Smart Friends App and go to the information page as illustrated:
 
-  ![alt](images/doc00.jpg)
+  ![alt](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc00.jpg)
 
 ### Collect devices ID's
 Device ID's **are important**, they will be used to interact with the device itself.
@@ -108,7 +108,7 @@ As it can be seen, actions are send using the device ID.
 
 This is a simple use case: Controlling roller shutters (alias covers or rolling shutters...)
 
-![covers](images/doc01.png)
+![covers](https://github.com/GimpArm/hassio-addons/blob/main/smartfriends-rest-api/images/doc01.png)
 
 The example shown above needs the creation of 3 elements:
 - shell commands to interract with the REST API (locally)
