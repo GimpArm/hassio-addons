@@ -13,7 +13,7 @@
 	"ports_description": {
 		"80/tcp": "REST API port"
 	},
-	"host_network": "true",
+	"host_network": false,
 	"options": {
 		"SmartFriends": {
 			"Host": "smartfriends.local",
