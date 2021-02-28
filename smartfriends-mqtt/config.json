@@ -11,6 +11,9 @@
     ],
     "boot": "auto",
     "host_network": "false",
+    "map": [
+      "config:rw"
+    ],
     "options": {
         "SmartFriends": {
             "Host": "smartfriends.local",
@@ -23,6 +26,7 @@
             "ShApiVersion": "2.20"
         },
         "Mqtt": {
+            "DataPath": "/config/smartfriends2mqtt",
             "BaseTopic": "smartfriends2mqtt",
             "Server": "homeassistant",
             "Port": 1883,
@@ -76,6 +80,7 @@
             "ShApiVersion": "str"
         },
         "Mqtt": {
+            "DataPath": "str",
             "BaseTopic": "str",
             "Server": "str",
             "Port": "int",
