@@ -7,6 +7,7 @@
 	"arch": ["armhf", "armv7", "aarch64", "amd64"],
 	"startup": "application",
 	"boot": "auto",
+	"host_network": true,
 	"ports": {
 		"80/tcp": 5001
 	},
