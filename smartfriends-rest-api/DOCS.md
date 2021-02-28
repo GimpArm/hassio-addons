@@ -40,7 +40,7 @@ In order to find these values, simply open the Smart Friends App and go to the i
 Device ID's **are important**, they will be used to interact with the device itself.
 
 When starting up in the log out or in a browser go to:
-```http://127.0.0.1:5001/list```
+```http://homeassistant:5001/list```
 
 And you will see an output like this:
 
