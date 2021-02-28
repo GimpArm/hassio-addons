@@ -16,8 +16,8 @@ Follow these simple steps in order to get it up and running:
 ### Installation and first start
 - Install the add-on
 - Go to configuration tab and specify the connection settings:
-  ```yaml
-  {
+```yaml
+{
   "SmartFriends": {
     "Username": "", #---------------> Username (case sensitive)
     "Password": "", #---------------> Password
@@ -28,16 +28,18 @@ Follow these simple steps in order to get it up and running:
     "ShcVersion": "2.21.1", #-------> Extra param 3
     "ShApiVersion":  "2.20" #-------> Extra param 4
   }
-  ```
-  **Extra API parameters**:
-  In order to find these values, simply open the Smart Friends App and go to the information page as illustrated:
+}
+```
 
-  ![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc00.jpg)
+**Extra API parameters**:
+In order to find these values, simply open the Smart Friends App and go to the information page as illustrated:
+
+![alt](https://raw.githubusercontent.com/GimpArm/hassio-addons/main/images/doc00.jpg)
 
 ### Collect devices ID's
 Device ID's **are important**, they will be used to interact with the device itself.
 
-This .Net version makes this process easier. In a browser go to:
+When starting up in the log out or in a browser go to:
 ```http://127.0.0.1:5001/list```
 
 And you will see an output like this:
