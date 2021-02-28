@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Extract options data
-jq -s '.[1].SmartFriends = .[0].options.SmartFriends
+jq -s '.[1].SmartFriends = .[0].SmartFriends
     | .[1]' /data/options.json /opt/appsettings.json | sponge /opt/appsettings.json
 
 # armhf needs this linked to run dotnet
