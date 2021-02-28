@@ -30,4 +30,5 @@ RUN curl -L -O https://github.com/GimpArm/smartfriends-bridge/releases/latest/do
 COPY rootfs /
 RUN chmod a+x /run.sh
 
+EXPOSE 80
 CMD [ "/run.sh" ]
