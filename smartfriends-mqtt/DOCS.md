@@ -215,4 +215,4 @@ There are currently 2 variables that can be useful for making templates that app
 ```
 
 ## Acknowledgments
-Special thanks to [LoPablo](https://github.com/LoPablo) and [AirThusiast](https://github.com/airthusiast) for their work on figuring out how the Schellenberg/SmartFriends API functions.
+Special thanks to [LoPablo](https://github.com/LoPablo) for their work on figuring out how the Schellenberg/SmartFriends API functions.
