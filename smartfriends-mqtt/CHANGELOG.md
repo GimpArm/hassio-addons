@@ -1,3 +1,3 @@
-### Version 1.0
-#### Added
-- Initial version
+### Version 2.2
+
+Changes structure to expose sub devices instead of trying to guess the intent.
