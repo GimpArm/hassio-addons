@@ -1,3 +1,5 @@
+# This add-on is obsolete. Migrate to the smartfriends-bridge add-on
+
 # SmartFriends MQTT
 This add-on creates an MQTT link between Hassio and Smart Friends Box
 

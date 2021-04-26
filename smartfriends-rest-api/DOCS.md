@@ -1,3 +1,5 @@
+# This add-on is obsolete. Migrate to the smartfriends-bridge add-on
+
 # SmartFriends REST API
 This add-on creates a link between Hassio and Smart Friends Box with a simple REST API.
 
