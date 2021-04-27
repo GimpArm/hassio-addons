@@ -1,3 +1,8 @@
+### Version 3.2
+
+Workaround for when devices are reported as having a MasterDeviceId = 0 from the SmartFriends box.
+Fixed issue not listing master devices when first sub device has no room but others do.
+
 ### Version 3.1
 
 Fixed issues with MQTT discovery.
