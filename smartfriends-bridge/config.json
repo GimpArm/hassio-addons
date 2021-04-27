@@ -6,14 +6,20 @@
 	"url": "https://github.com/GimpArm/hassio-addons",
 	"arch": ["armhf", "armv7", "aarch64", "amd64"],
 	"startup": "application",
-	"boot": "auto",
+    "services": [
+        "mqtt:need"
+    ],
+    "boot": "auto",
+    "host_network": false,
+    "map": [
+      "config:rw"
+    ],
 	"ports": {
 		"80/tcp": 5001
 	},
 	"ports_description": {
 		"80/tcp": "REST API port"
 	},
-	"host_network": false,
 	"options": {
 		"SmartFriends": {
 			"Host": "smartfriends.local",
