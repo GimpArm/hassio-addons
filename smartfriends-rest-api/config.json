@@ -2,7 +2,7 @@
 	"name": "SmartFriends REST API",
 	"version": "2.3",
 	"slug": "smartfriends-rest-api",
-	"description": "Control your Smart Friends devices through a simple REST API",
+	"description": "Control your Smart Friends devices through a simple REST API. Depricated, use smartfriends-bridge",
 	"url": "https://github.com/GimpArm/hassio-addons",
 	"arch": ["armhf", "armv7", "aarch64", "amd64"],
 	"startup": "application",
