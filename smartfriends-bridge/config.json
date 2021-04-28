@@ -38,7 +38,6 @@
             "Server": "homeassistant",
             "Port": 1883,
             "User": "mqtt-user",
-            "Password": null,
             "UseSsl": false
         }
 	},
@@ -60,7 +59,7 @@
             "Server": "str",
             "Port": "int",
             "User": "str",
-            "Password": "str?",
+            "Password": "password?",
             "UseSsl": "bool"
         }
 	},
