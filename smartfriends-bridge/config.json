@@ -60,7 +60,7 @@
             "Server": "str",
             "Port": "int",
             "User": "str",
-            "Password": "password?",
+            "Password": "str?",
             "UseSsl": "bool"
         }
 	},
