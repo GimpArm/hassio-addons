@@ -1,3 +1,7 @@
+### Version 3.3
+
+Small fix. SmarFriends change, new registrations of devices don't match on deviceTypClient any more.
+
 ### Version 3.2
 
 Workaround for when devices are reported as having a MasterDeviceId = 0 from the SmartFriends box.
