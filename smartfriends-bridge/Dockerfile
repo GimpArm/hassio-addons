@@ -11,7 +11,7 @@ ENV LANG C.UTF-8
 WORKDIR /opt
 
 RUN apt-get update \
-    && apt-get install -y bash curl unzip jq moreutils libc6 libgcc1 libgssapi-krb5-2 libicu63 liblttng-ust0 libssl1.1 libstdc++6 zlib1g \
+    && apt-get install -y bash curl unzip jq moreutils libc6 libgcc-s1 libgssapi-krb5-2 libicu67 liblttng-ust0 libssl1.1 libstdc++6 zlib1g \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
