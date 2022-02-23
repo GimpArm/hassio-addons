@@ -1,3 +1,8 @@
+### Version 3.4
+
+- Bug fix, sending wrong formatted current state values.
+- Feature, added ability to have complex data types for template values.
+
 ### Version 3.3
 
 Small fix. SmarFriends change, new registrations of devices don't match on deviceTypClient any more.
