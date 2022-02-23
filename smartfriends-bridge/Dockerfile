@@ -17,7 +17,7 @@ RUN apt-get update \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN curl -L -O https://dot.net/v1/dotnet-install.sh \
-    && /bin/bash dotnet-install.sh -c 5.0 --runtime aspnetcore -InstallDir /usr/share/dotnet \
+    && /bin/bash dotnet-install.sh -c 6.0 --runtime aspnetcore -InstallDir /usr/share/dotnet \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
     && rm dotnet-install.sh
 
