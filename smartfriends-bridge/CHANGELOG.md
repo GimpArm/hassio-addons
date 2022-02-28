@@ -1,3 +1,7 @@
+### Version 3.5
+
+- Bug fix, sometimes JsonToken.Integer can be a Long.
+
 ### Version 3.4
 
 - Bug fix, sending wrong formatted current state values.
