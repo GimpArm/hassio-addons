@@ -1,3 +1,7 @@
+### Version 3.6
+
+- Added ability to parse multiple json objects from Smartfriends bridge.
+
 ### Version 3.5
 
 - Bug fix, sometimes JsonToken.Integer can be a Long.
