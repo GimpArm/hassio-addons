@@ -1,10 +1,11 @@
 {
 	"name": "SmartFriends Bridge",
-	"version": "3.5",
+	"version": "3.6",
 	"slug": "smartfriends-bridge",
 	"description": "Control your Smart Friends devices through REST or MQTT",
 	"url": "https://github.com/GimpArm/hassio-addons",
 	"arch": ["armhf", "armv7", "aarch64", "amd64"],
+	"init": false,
 	"startup": "application",
     "services": [
         "mqtt:need"
