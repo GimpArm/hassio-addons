@@ -1,3 +1,8 @@
+### Version 3.7
+
+- Fixed default cover template
+- Added switch example to default template
+
 ### Version 3.6
 
 - Added ability to parse multiple json objects from Smartfriends bridge.
