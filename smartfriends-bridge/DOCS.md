@@ -25,8 +25,8 @@ Follow these simple steps in order to get it up and running:
     "Port": 4300, #-----------------> Port of the box, generally 4300/tcp
     "CSymbol": "D19033", #----------> Extra param 1
     "CSymbolAddon": "i", #----------> Extra param 2
-    "ShcVersion": "2.21.1", #-------> Extra param 3
-    "ShApiVersion":  "2.20" #-------> Extra param 4
+    "ShcVersion": "3.4.4", #--------> Extra param 3
+    "ShApiVersion":  "3.3" #--------> Extra param 4
   },
   "Mqtt": {
     "Enable": false, #-------------------> Flag whether to enabled or disable the MQTT client.

@@ -1,3 +1,10 @@
+## Version 3.8
+
+- Handle multiple messages in a single response
+- Ignore ResponseCode = 5 messages, these are client upgrade messages
+- Add more possible state values for switchingValues
+- Upgrade the default API and Client versions
+
 ### Version 3.7
 
 - Fixed default cover template

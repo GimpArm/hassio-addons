@@ -1,6 +1,6 @@
 {
 	"name": "SmartFriends Bridge",
-	"version": "3.7",
+	"version": "3.8",
 	"slug": "smartfriends-bridge",
 	"description": "Control your Smart Friends devices through REST or MQTT",
 	"url": "https://github.com/GimpArm/hassio-addons",
@@ -29,8 +29,8 @@
 			"Password": null,
 			"CSymbol": "D19033",
 			"CSymbolAddon": "i",
-			"ShcVersion": "2.21.1",
-			"ShApiVersion": "2.20"
+			"ShcVersion": "3.4.4",
+			"ShApiVersion": "3.3"
 		},
         "Mqtt": {
 			"Enabled": false,
