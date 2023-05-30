@@ -1,3 +1,8 @@
+## Version 3.9
+
+- Change client to use event based messaging
+- Upgrade MQTT client
+
 ## Version 3.8
 
 - Handle multiple messages in a single response
