@@ -1,3 +1,6 @@
+## Version 3.10
+- In preparation for HomeAssistant 2024.2.0, remove entity name from MQTT registration
+
 ## Version 3.9
 
 - Change client to use event based messaging
