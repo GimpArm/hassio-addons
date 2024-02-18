@@ -1,3 +1,7 @@
+## Version 3.11
+- Upgrade to dotnet 8.0
+- Change all number handling to int64 due to SmartfriendsBridge inconsistencies
+
 ## Version 3.10
 - In preparation for HomeAssistant 2024.2.0, remove entity name from MQTT registration
 
