@@ -1,3 +1,7 @@
+## Version 3.12
+- Upgrade to Debian Bookworm base
+- Fix encryption problems on Arm64 platforms
+
 ## Version 3.11
 - Upgrade to dotnet 8.0
 - Change all number handling to int64 due to SmartfriendsBridge inconsistencies
