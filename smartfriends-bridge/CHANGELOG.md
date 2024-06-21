@@ -1,3 +1,6 @@
+## Version 3.13
+- Add HSV value converter for MQTT
+
 ## Version 3.12
 - Upgrade to Debian Bookworm base
 - Fix encryption problems on Arm64 platforms
