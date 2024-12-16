@@ -1,3 +1,6 @@
+## Version 3.15
+- Fix deserialization error when device value is null
+
 ## Version 3.14
 - Don't crash if device value deserialization fails
 
