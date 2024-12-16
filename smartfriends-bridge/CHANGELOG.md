@@ -1,3 +1,6 @@
+## Version 3.14
+- Don't crash if device value deserialization fails
+
 ## Version 3.13
 - Add HSV value converter for MQTT
 
