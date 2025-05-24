@@ -1,3 +1,6 @@
+## Version 3.16
+- Fix crash with burglar alarms and any device using boolean states with unsupported string values
+
 ## Version 3.15
 - Fix deserialization error when device value is null
 
