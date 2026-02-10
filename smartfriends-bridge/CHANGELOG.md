@@ -1,3 +1,6 @@
+## Version 3.18
+- Fix 3.17 release mistake
+
 ## Version 3.17
 - Allow setting the MQTT protocol version. V500, V311, or V310 defaults to V500
 
