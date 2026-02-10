@@ -1,6 +1,6 @@
 {
 	"name": "SmartFriends Bridge",
-	"version": "3.16",
+	"version": "3.17",
 	"slug": "smartfriends-bridge",
 	"description": "Control your Smart Friends devices through REST or MQTT",
 	"url": "https://github.com/GimpArm/hassio-addons",
@@ -40,7 +40,8 @@
             "Port": 1883,
             "User": "mqtt-user",
             "Password": "password",
-            "UseSsl": false
+            "UseSsl": false,
+            "ProtocolVersion": ["V500", "V311", "V310"]
         }
 	},
 	"schema": {
@@ -62,7 +63,8 @@
             "Port": "int",
             "User": "str",
             "Password": "password",
-            "UseSsl": "bool"
+            "UseSsl": "bool",
+			"ProtocolVersion": ["str"]
         }
 	},
 	"image": "gimparm/{arch}-smartfriends-bridge"

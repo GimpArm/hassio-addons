@@ -1,3 +1,6 @@
+## Version 3.17
+- Allow setting the MQTT protocol version. V500, V311, or V310 defaults to V500
+
 ## Version 3.16
 - Fix crash with burglar alarms and any device using boolean states with unsupported string values
 
