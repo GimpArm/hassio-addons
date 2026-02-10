@@ -41,7 +41,7 @@
             "User": "mqtt-user",
             "Password": "password",
             "UseSsl": false,
-            "ProtocolVersion": ["V500", "V311", "V310"]
+            "ProtocolVersion": "V500"
         }
 	},
 	"schema": {
@@ -64,7 +64,7 @@
             "User": "str",
             "Password": "password",
             "UseSsl": "bool",
-			"ProtocolVersion": "str"
+			"ProtocolVersion": "str?"
         }
 	},
 	"image": "gimparm/{arch}-smartfriends-bridge"
