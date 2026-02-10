@@ -64,7 +64,7 @@
             "User": "str",
             "Password": "password",
             "UseSsl": "bool",
-			"ProtocolVersion": ["str"]
+			"ProtocolVersion": "str"
         }
 	},
 	"image": "gimparm/{arch}-smartfriends-bridge"
