@@ -1,3 +1,6 @@
+##Version 3.19
+- Add ABUS camera image support
+
 ## Version 3.18
 - Fix 3.17 release mistake
 
