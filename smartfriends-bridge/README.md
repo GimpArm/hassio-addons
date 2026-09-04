@@ -9,7 +9,7 @@ For more information, please read the documentation.
 ### Authors
 - **SmartFriends Hassio Add-On**
   Author: [GimprArm](https://github.com/gimparm)
-  Repository: https://github.com/airthusiast/hassio-addon
+  Repository: https://github.com/gimparm/hassio-addons
 - **SmartFriends Bridge**
   Author: [GimpArm](https://github.com/gimparm)
   Repository: https://github.com/gimparm/smartfriends-bridge
