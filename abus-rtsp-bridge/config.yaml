@@ -23,10 +23,7 @@ ports_description:
   3702/udp: WS-Discovery for ONVIF port
 options:
   camera:
-    did: null
     password: null
-    bind_ip: null
-    target_ip: null
     timeout: 5.0
   rtsp:
     url: rtsp://0.0.0.0:8554/abus
@@ -41,12 +38,8 @@ options:
     ws_discovery: true
     port: 8000
     ptz_step: 2
-  auth:
-    username: null
-    password: null
   diagnostics:
     debug: false
-    dump_raw: null
     skip_video_start: false
     skip_audio_start: false
 schema:
