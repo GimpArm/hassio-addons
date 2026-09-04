@@ -38,6 +38,7 @@ options:
     ws_discovery: true
     port: 8000
     ptz_step: 2
+  auth: {}
   diagnostics:
     debug: false
     skip_video_start: false
