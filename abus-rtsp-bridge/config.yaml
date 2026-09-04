@@ -1,5 +1,5 @@
 name: ABUS RTSP Bridge
-version: "1.0.0"
+version: "1.0.1"
 slug: abus-rtsp-bridge
 description: Restream ABUS/JSW-family P2P cameras as RTSP, with PTZ/ONVIF/health support
 url: https://github.com/GimpArm/hassio-addons
