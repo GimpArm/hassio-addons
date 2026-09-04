@@ -1,0 +1,94 @@
+configuration:
+  camera:
+    name: Camera
+    description: Connection details for the ABUS camera itself
+    fields:
+      did:
+        name: DID
+        description: Camera DID, e.g. ABCD-012345-EFGHI. Required for the cloud/P2P fallback if the camera isn't on the same LAN.
+      password:
+        name: Password
+        description: Camera view password / security code (the same one the phone app uses)
+      bind_ip:
+        name: Bind IP
+        description: Local IPv4 to bind the discovery socket to - leave blank to auto-select
+      target_ip:
+        name: Target IP
+        description: Known camera IP on the same LAN - skips broadcast discovery
+      timeout:
+        name: Discovery timeout
+        description: Seconds to wait for LAN discovery before falling back to the cloud/P2P path
+  rtsp:
+    name: RTSP
+    description: Output RTSP stream settings
+    fields:
+      url:
+        name: RTSP URL
+        description: Destination RTSP URL to publish the stream on
+      resolution:
+        name: Resolution
+        description: "Video quality: 0=by camera setting, 1=Full HD, 2=HD, 3=SD, 4=automatic"
+      disable_audio:
+        name: Disable audio
+        description: Disable the second (audio) RTP stream
+  ptz:
+    name: PTZ REST server
+    description: Pan/tilt/zoom, snapshot, and health-check REST API
+    fields:
+      enabled:
+        name: Enabled
+        description: Enable the PTZ/snapshot/health REST server
+      http_host:
+        name: Bind address
+        description: Bind address for the PTZ REST server
+      http_port:
+        name: Port
+        description: Port for the PTZ REST server
+  onvif:
+    name: ONVIF
+    description: ONVIF device/media/PTZ service, for NVRs like Frigate
+    fields:
+      enabled:
+        name: Enabled
+        description: Enable the ONVIF service
+      ws_discovery:
+        name: WS-Discovery
+        description: Enable WS-Discovery (UDP multicast) so NVRs can auto-discover the ONVIF service
+      port:
+        name: Port
+        description: ONVIF SOAP service port
+      ptz_step:
+        name: PTZ step size
+        description: How far one ONVIF PTZ click moves the camera (1-16 scale)
+  auth:
+    name: Authentication
+    description: Optional HTTP/RTSP Basic auth shared by the RTSP stream, ONVIF service, and PTZ REST server
+    fields:
+      username:
+        name: Username
+        description: Leave blank (together with password) to disable auth
+      password:
+        name: Password
+        description: Leave blank (together with username) to disable auth
+  diagnostics:
+    name: Diagnostics
+    description: Troubleshooting flags - leave these off for normal use
+    fields:
+      debug:
+        name: Debug logging
+        description: Verbose per-packet/per-frame diagnostic logging
+      dump_raw:
+        name: Dump raw frames
+        description: Write raw post-auth frames to this path instead of streaming
+      skip_video_start:
+        name: Skip video start
+        description: Diagnostic test flag - leave off
+      skip_audio_start:
+        name: Skip audio start
+        description: Diagnostic test flag - leave off
+
+network:
+  8554/tcp: RTSP stream port
+  8080/tcp: PTZ/snapshot/health REST API port
+  8000/tcp: ONVIF SOAP service port
+  3702/udp: WS-Discovery multicast port for ONVIF

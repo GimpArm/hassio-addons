@@ -1,0 +1,80 @@
+name: ABUS RTSP Bridge
+version: "1.0.0"
+slug: abus-rtsp-bridge
+description: Restream ABUS/JSW-family P2P cameras as RTSP, with PTZ/ONVIF/health support
+url: https://github.com/GimpArm/hassio-addons
+arch:
+  - aarch64
+  - amd64
+init: false
+startup: application
+boot: auto
+host_network: true
+watchdog: "http://[HOST]:[PORT:8080]/health"
+ports:
+  8554/tcp: 8554
+  8080/tcp: 8080
+  8000/tcp: 8000
+  3702/udp: 3702
+ports_description:
+  8554/tcp: RTSP port
+  8080/tcp: PTZ/snapshot/health REST port
+  8000/tcp: ONVIF port
+  3702/udp: WS-Discovery for ONVIF port
+options:
+  camera:
+    did: null
+    password: null
+    bind_ip: null
+    target_ip: null
+    timeout: 5.0
+  rtsp:
+    url: rtsp://0.0.0.0:8554/abus
+    resolution: 0
+    disable_audio: false
+  ptz:
+    enabled: true
+    http_host: 0.0.0.0
+    http_port: 8080
+  onvif:
+    enabled: true
+    ws_discovery: true
+    port: 8000
+    ptz_step: 2
+  auth:
+    username: null
+    password: null
+  diagnostics:
+    debug: false
+    dump_raw: null
+    skip_video_start: false
+    skip_audio_start: false
+schema:
+  camera:
+    did: str?
+    password: password
+    bind_ip: str?
+    target_ip: str?
+    timeout: float?
+  rtsp:
+    url: str?
+    resolution: int(0,4)?
+    disable_audio: bool
+  ptz:
+    enabled: bool
+    http_host: str?
+    http_port: port?
+  onvif:
+    enabled: bool
+    ws_discovery: bool
+    port: port?
+    ptz_step: int(1,16)?
+  auth:
+    username: str?
+    password: password?
+  diagnostics:
+    debug: bool
+    dump_raw: str?
+    skip_video_start: bool
+    skip_audio_start: bool
+image: gimparm/abus-rtsp-bridge

@@ -1,0 +1,94 @@
+configuration:
+  camera:
+    name: Kamera
+    description: Verbindungsdetails für die ABUS-Kamera
+    fields:
+      did:
+        name: DID
+        description: Kamera-DID, z. B. ABCD-012345-EFGHI. Erforderlich für den Cloud/P2P-Fallback, wenn sich die Kamera nicht im selben LAN befindet.
+      password:
+        name: Passwort
+        description: Kamera-Ansichtspasswort / Sicherheitscode (dasselbe wie in der Telefon-App)
+      bind_ip:
+        name: Bind-IP
+        description: Lokale IPv4-Adresse, an die der Discovery-Socket gebunden wird - leer lassen für automatische Auswahl
+      target_ip:
+        name: Ziel-IP
+        description: Bekannte Kamera-IP im selben LAN - überspringt die Broadcast-Erkennung
+      timeout:
+        name: Erkennungs-Timeout
+        description: Sekunden, die auf die LAN-Erkennung gewartet wird, bevor auf den Cloud/P2P-Pfad zurückgegriffen wird
+  rtsp:
+    name: RTSP
+    description: Einstellungen für den ausgehenden RTSP-Stream
+    fields:
+      url:
+        name: RTSP-URL
+        description: Ziel-RTSP-URL, unter der der Stream veröffentlicht wird
+      resolution:
+        name: Auflösung
+        description: "Videoqualität: 0=Kameraeinstellung, 1=Full HD, 2=HD, 3=SD, 4=automatisch"
+      disable_audio:
+        name: Audio deaktivieren
+        description: Den zweiten (Audio-)RTP-Stream deaktivieren
+  ptz:
+    name: PTZ-REST-Server
+    description: REST-API für Schwenken/Neigen/Zoom, Schnappschüsse und Zustandsprüfung
+    fields:
+      enabled:
+        name: Aktiviert
+        description: PTZ-/Schnappschuss-/Health-REST-Server aktivieren
+      http_host:
+        name: Bind-Adresse
+        description: Bind-Adresse für den PTZ-REST-Server
+      http_port:
+        name: Port
+        description: Port für den PTZ-REST-Server
+  onvif:
+    name: ONVIF
+    description: ONVIF-Geräte-/Medien-/PTZ-Dienst, für NVRs wie Frigate
+    fields:
+      enabled:
+        name: Aktiviert
+        description: ONVIF-Dienst aktivieren
+      ws_discovery:
+        name: WS-Discovery
+        description: WS-Discovery (UDP-Multicast) aktivieren, damit NVRs den ONVIF-Dienst automatisch erkennen können
+      port:
+        name: Port
+        description: Port des ONVIF-SOAP-Dienstes
+      ptz_step:
+        name: PTZ-Schrittweite
+        description: Wie weit ein ONVIF-PTZ-Klick die Kamera bewegt (Skala 1-16)
+  auth:
+    name: Authentifizierung
+    description: Optionale HTTP/RTSP-Basisauthentifizierung, gemeinsam genutzt von RTSP-Stream, ONVIF-Dienst und PTZ-REST-Server
+    fields:
+      username:
+        name: Benutzername
+        description: Zusammen mit Passwort leer lassen, um die Authentifizierung zu deaktivieren
+      password:
+        name: Passwort
+        description: Zusammen mit Benutzername leer lassen, um die Authentifizierung zu deaktivieren
+  diagnostics:
+    name: Diagnose
+    description: Diagnoseoptionen - für den Normalbetrieb deaktiviert lassen
+    fields:
+      debug:
+        name: Debug-Protokollierung
+        description: Ausführliche Diagnoseprotokollierung pro Paket/Frame
+      dump_raw:
+        name: Rohdaten speichern
+        description: Rohe, nachauthentifizierte Frames in diesen Pfad schreiben, anstatt zu streamen
+      skip_video_start:
+        name: Videostart überspringen
+        description: Diagnose-Testoption - deaktiviert lassen
+      skip_audio_start:
+        name: Audiostart überspringen
+        description: Diagnose-Testoption - deaktiviert lassen
+
+network:
+  8554/tcp: RTSP-Stream-Port
+  8080/tcp: PTZ-/Schnappschuss-/Health-REST-API-Port
+  8000/tcp: ONVIF-SOAP-Dienst-Port
+  3702/udp: WS-Discovery-Multicast-Port für ONVIF

@@ -1,0 +1,27 @@
+camera:
+  did: ABCD-012345-EFGHI
+  password: changeme
+  bind_ip: 192.168.1.10
+  target_ip: 192.168.1.64
+  timeout: 5.0
+rtsp:
+  url: rtsp://0.0.0.0:8554/abus
+  resolution: 0
+  disable_audio: false
+ptz:
+  enabled: true
+  http_host: 0.0.0.0
+  http_port: 8080
+onvif:
+  enabled: true
+  ws_discovery: true
+  port: 8000
+  ptz_step: 2
+auth:
+  username: null
+  password: null
+diagnostics:
+  debug: false
+  dump_raw: null
+  skip_video_start: false
+  skip_audio_start: false
