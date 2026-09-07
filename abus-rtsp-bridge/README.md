@@ -5,6 +5,8 @@ This app creates a connection to an ABUS Camera and restreams its proprietary ca
 
 For more information, please read the documentation.
 
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/GimpArm)
+
 ### Authors
 - **ABUS RTSP Bridge Hassio App**
   Author: [GimpArm](https://github.com/gimparm)

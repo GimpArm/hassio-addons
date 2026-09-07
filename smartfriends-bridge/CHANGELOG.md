@@ -1,3 +1,6 @@
+## Version 3.20
+- Upgrade to Home Assistant App
+
 ## Version 3.19
 - Add ABUS camera image support
 

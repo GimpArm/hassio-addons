@@ -1,23 +1,22 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM ghcr.io/home-assistant/base-debian:latest AS base
 
-ARG BUILD_ARCH
-ARG BUILD_VERSION
+ARG BUILD_ARCH=amd64
+ARG BUILD_VERSION=1.0.0
+LABEL \
+  io.hass.version="${BUILD_VERSION}" \
+  io.hass.type="app" \
+  io.hass.arch="${BUILD_ARCH}"
 
-LABEL maintainer "GimpArm"
-
-ENV LANG C.UTF-8
-
-WORKDIR /opt
+WORKDIR /app
 
 RUN apt-get update \
-    && apt-get install -y bash curl unzip jq moreutils qemu-user-static libc6 libgcc-s1 libgssapi-krb5-2 libicu72 liblttng-ust1 libssl3 libstdc++6 zlib1g \
+    && apt-get install --no-install-recommends -y bash curl unzip jq moreutils qemu-user-static libc6 libgcc-s1 libgssapi-krb5-2 libicu76 liblttng-ust1t64 libssl3t64 libstdc++6 zlib1g \
     && apt-get clean autoclean \
     && apt-get autoremove --yes \
     && rm -rf /var/lib/{apt,dpkg,cache,log}/
 
 RUN curl -L -O https://dot.net/v1/dotnet-install.sh \
-    && /bin/bash dotnet-install.sh -c 8.0 --runtime aspnetcore -InstallDir /usr/share/dotnet \
+    && /bin/bash dotnet-install.sh -c 10.0 --runtime aspnetcore -InstallDir /usr/share/dotnet \
     && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
     && rm dotnet-install.sh
 
@@ -34,5 +33,5 @@ RUN curl -L -O https://github.com/GimpArm/smartfriends-bridge/releases/latest/do
 COPY rootfs /
 RUN chmod a+x /run.sh
 
-EXPOSE 80
+EXPOSE 5001
 CMD [ "/run.sh" ]

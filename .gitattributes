@@ -1,0 +1,5 @@
+* text=auto
+*.sh eol=lf
+*.json eol=lf
+*.yaml eol=lf
+*.md eol=lf
