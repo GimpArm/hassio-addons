@@ -1,3 +1,6 @@
+## Version 3.21
+- Fix: MQTT sends wrong default value when no Kind explicitly set
+
 ## Version 3.20
 - Upgrade to Home Assistant App
 

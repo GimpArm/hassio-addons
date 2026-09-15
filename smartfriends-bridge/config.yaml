@@ -1,5 +1,5 @@
 name: SmartFriends Bridge
-version: "3.20.0"
+version: "3.21.0"
 slug: smartfriends-bridge
 description: Control your Smart Friends devices through REST or MQTT
 url: https://github.com/GimpArm/hassio-addons
