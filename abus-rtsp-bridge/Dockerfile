@@ -1,4 +1,4 @@
-FROM gimparm/abus-rtsp-bridge:latest AS AbusRtspBridge
+FROM gimparm/abus-rtsp-bridge:1.1.0-rc1 AS AbusRtspBridge
 
 FROM ghcr.io/home-assistant/base-debian:latest AS Base
 
