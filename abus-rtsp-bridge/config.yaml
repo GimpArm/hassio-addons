@@ -1,5 +1,5 @@
 name: ABUS RTSP Bridge Beta
-version: "1.1.0-rc3"
+version: "1.1.0-rc4"
 slug: abus-rtsp-bridge
 description: Restream ABUS/JSW-family P2P cameras as RTSP, with PTZ/ONVIF/health support
 url: https://github.com/GimpArm/hassio-addons
@@ -14,13 +14,11 @@ watchdog: "http://[HOST]:[PORT:8080]/health"
 ports:
   8554/tcp: 8554
   8080/tcp: 8080
-  8000/tcp: 8000
   3702/udp: 3702
 ports_description:
-  8554/tcp: RTSP port
-  8080/tcp: PTZ/snapshot/health REST port
-  8000/tcp: ONVIF port
-  3702/udp: WS-Discovery for ONVIF port
+  8554/tcp: RTSP port (all cameras, told apart by path)
+  8080/tcp: PTZ/snapshot/health REST port (all cameras)
+  3702/udp: WS-Discovery for ONVIF cameras
 options:
   cameras: []
   camera:

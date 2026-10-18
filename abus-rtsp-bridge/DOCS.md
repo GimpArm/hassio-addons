@@ -116,7 +116,7 @@ the camera name prefix, e.g. `/abus/snapshot`.
 - PTZ/snapshot/health REST API: `http://<host>:8080` (`/ptz/<direction>`, `/snapshot`,
   `/health`, `/siren/<on|off>`, `/light/<on|off>` - see the main project's README for the
   full list)
-- ONVIF: `http://<host>:8000/onvif/device_service`
+- ONVIF (only for cameras with `onvif_port`): `http://<host>:<onvif_port>/onvif/device_service`
 
 ## Frigate example
 

@@ -1,7 +1,7 @@
 configuration:
   camera:
-    name: Camera
-    description: Connection details for the ABUS camera itself
+    name: Camera (legacy)
+    description: Legacy single-camera settings - DID, Bind IP and Target IP are migrated into the cameras list on first start. Password and discovery timeout remain the defaults shared by all cameras.
     fields:
       did:
         name: DID
@@ -20,11 +20,17 @@ configuration:
         description: Seconds to wait for LAN discovery before falling back to the cloud/P2P path
   rtsp:
     name: RTSP
-    description: Output RTSP stream settings
+    description: RTSP server settings shared by all cameras - each camera is served at rtsp://host:port/<camera name>
     fields:
+      bind_ip:
+        name: Bind IP
+        description: Address the RTSP server listens on (default 0.0.0.0, all interfaces)
+      port:
+        name: Port
+        description: RTSP port shared by all cameras (default 8554)
       url:
-        name: RTSP URL
-        description: Destination RTSP URL to publish the stream on
+        name: RTSP URL (legacy)
+        description: Legacy option, migrated into Bind IP and Port on first start
       resolution:
         name: Resolution
         description: "Video quality: 0=by camera setting, 1=Full HD, 2=HD, 3=SD, 4=automatic"
@@ -45,8 +51,8 @@ configuration:
         name: Port
         description: Port for the PTZ REST server
   onvif:
-    name: ONVIF
-    description: ONVIF device/media/PTZ service, for NVRs like Frigate
+    name: ONVIF (legacy)
+    description: Legacy single-camera ONVIF settings, migrated into each camera's ONVIF options on first start and ignored once cameras are configured
     fields:
       enabled:
         name: Enabled
@@ -88,7 +94,7 @@ configuration:
         description: Diagnostic test flag - leave off
   cameras:
     name: Cameras
-    description: Optional list for running several cameras. The sections above become defaults shared by every camera; each entry overrides them. Every camera needs a DID and/or target IP. Unless overridden, camera N (starting at 0) gets RTSP port 8554+N with path /name and ONVIF port 8000+N. The REST API stays on one port, with the camera name as the first path segment (e.g. /name/ptz/left).
+    description: List of cameras. The other sections act as defaults shared by every camera; each entry overrides them. Every camera needs a DID and/or target IP. All cameras share the RTSP port and are served at rtsp://host:port/name. ONVIF is off for a camera unless it sets an ONVIF port. The REST API stays on one port, with the camera name as the first path segment (e.g. /name/ptz/left).
     fields:
       name:
         name: Name
@@ -108,9 +114,6 @@ configuration:
       timeout:
         name: Discovery timeout
         description: Seconds to wait for LAN discovery before falling back to the cloud/P2P path
-      rtsp_url:
-        name: RTSP URL
-        description: Overrides the derived RTSP URL (port and path)
       resolution:
         name: Resolution
         description: "Video quality: 0=by camera setting, 1=Full HD, 2=HD, 3=SD, 4=automatic"
@@ -119,10 +122,15 @@ configuration:
         description: Disable the second (audio) RTP stream
       onvif_port:
         name: ONVIF port
-        description: Overrides the derived ONVIF service port
+        description: Enables ONVIF for this camera on this port (must be unique). ONVIF is off if left blank.
+      onvif_ws_discovery:
+        name: ONVIF WS-Discovery
+        description: Enable WS-Discovery (UDP multicast) for this camera's ONVIF service. Only used with an ONVIF port.
+      onvif_ptz_step:
+        name: ONVIF PTZ step size
+        description: How far one ONVIF PTZ click moves the camera (1-16 scale). Only used with an ONVIF port.
 
 network:
-  8554/tcp: RTSP stream port
-  8080/tcp: PTZ/snapshot/health REST API port
-  8000/tcp: ONVIF SOAP service port
-  3702/udp: WS-Discovery multicast port for ONVIF
+  8554/tcp: RTSP port (all cameras, told apart by path)
+  8080/tcp: PTZ/snapshot/health REST API port (all cameras)
+  3702/udp: WS-Discovery multicast port for ONVIF cameras
