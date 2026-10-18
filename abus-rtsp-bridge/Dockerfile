@@ -1,4 +1,4 @@
-FROM gimparm/abus-rtsp-bridge:1.1.0-rc1 AS AbusRtspBridge
+FROM gimparm/abus-rtsp-bridge:1.1.0-rc2 AS abus-rtsp-bridge
 
 FROM ghcr.io/home-assistant/base-debian:latest AS Base
 
@@ -35,9 +35,9 @@ WORKDIR /app
 # files live at /app/src/*.py in the published image (see the main repo's own Dockerfile),
 # and entrypoint.sh hardcodes /app/src/abus_rtsp_bridge.py, so both the source AND
 # destination below must keep the src/ path, not flatten it.
-COPY --from=AbusRtspBridge /app/src/*.py ./src/
-COPY --from=AbusRtspBridge /healthcheck.py /
-COPY --from=AbusRtspBridge /entrypoint.sh /
+COPY --from=abus-rtsp-bridge /app/src/*.py ./src/
+COPY --from=abus-rtsp-bridge /healthcheck.py /
+COPY --from=abus-rtsp-bridge /entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 EXPOSE 8554 8080 8000
