@@ -37,6 +37,9 @@ configuration:
       disable_audio:
         name: Audio deaktivieren
         description: Den zweiten (Audio-)RTP-Stream deaktivieren
+      disable_talkback:
+        name: Gegensprechen deaktivieren
+        description: Zwei-Wege-Audio (ONVIF-RTSP-Audio-Backchannel) deaktivieren, sodass Clients nicht über den Kameralautsprecher sprechen können
   ptz:
     name: PTZ-REST-Server
     description: REST-API für Schwenken/Neigen/Zoom, Schnappschüsse und Zustandsprüfung
@@ -120,6 +123,9 @@ configuration:
       disable_audio:
         name: Audio deaktivieren
         description: Den zweiten (Audio-)RTP-Stream deaktivieren
+      disable_talkback:
+        name: Gegensprechen deaktivieren
+        description: Zwei-Wege-Audio für diese Kamera deaktivieren
       onvif_port:
         name: ONVIF-Port
         description: Aktiviert ONVIF für diese Kamera auf diesem Port (muss eindeutig sein). Leer = ONVIF deaktiviert.

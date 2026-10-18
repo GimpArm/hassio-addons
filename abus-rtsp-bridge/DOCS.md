@@ -17,6 +17,8 @@ Source code: https://github.com/gimparm/abus-rtsp-bridge
 
 You need the camera's **DID** and **view password** (the same credentials the phone app
 uses). The DID looks like `ABCD-012345-EFGHI` and is shown in the app's device settings.
+If you can't find it, turn on push notifications for the camera in the app - the notification
+your phone receives contains the DID.
 
 If you plan to use your NVR's own motion/object detection (e.g. Frigate), turn off the
 camera's built-in detection features in the phone app first - running both at once just
@@ -52,6 +54,7 @@ Every option below is optional unless noted - anything left blank keeps a sensib
 | `port` | RTSP port shared by all cameras. Default `8554`. Each camera is served at `rtsp://<host>:<port>/<camera name>`. |
 | `resolution` | Video quality: `0`=by camera setting, `1`=Full HD, `2`=HD, `3`=SD, `4`=automatic. |
 | `disable_audio` | Disable the second (audio) RTP stream. Audio is included by default. |
+| `disable_talkback` | Disable two-way audio (see [Two-way audio](#two-way-audio)). |
 
 ### `ptz`
 | Option | Description |
@@ -92,7 +95,7 @@ form - set it to the password most cameras use), and each entry overrides them:
 |---|---|
 | `name` | **Required.** Unique name (letters, digits, `_`, `-`), used in logs and as the RTSP path. |
 | `did` / `target_ip` | At least one is **required** per camera so discovery picks the right camera. |
-| `password`, `bind_ip`, `timeout`, `resolution`, `disable_audio` | Optional per-camera overrides. |
+| `password`, `bind_ip`, `timeout`, `resolution`, `disable_audio`, `disable_talkback` | Optional per-camera overrides. |
 | `onvif_port` | Enables ONVIF for this camera on this port. ONVIF is **off** for a camera unless this is set; each port must be unique. |
 | `onvif_ws_discovery`, `onvif_ptz_step` | Optional ONVIF WS-Discovery toggle and PTZ step (1-16) for this camera; only used with `onvif_port`. |
 
@@ -109,6 +112,16 @@ Upgrading from a single-camera install: on first start the add-on moves your exi
 `camera.did`/`target_ip`/`bind_ip` into a `cameras` entry named after your old RTSP path
 (`abus` by default), so your RTSP URL and ONVIF port stay the same. The REST API paths then gain
 the camera name prefix, e.g. `/abus/snapshot`.
+
+## Two-way audio
+
+The RTSP stream supports the ONVIF audio backchannel, so a client that requests it can talk
+through the camera's speaker. In Frigate/go2rtc (and Home Assistant's camera two-way talk), if
+the RTSP source doesn't request the backchannel by default, add `#backchannel=1` to its URL,
+e.g. `rtsp://<host>:8554/<camera name>#backchannel=1`.
+The client must send G.711 A-law (`PCMA/8000`). While the speaker is open the camera's own audio
+is muted in the stream to avoid feedback, and a connected backchannel client roughly doubles the
+stream's CPU use. Set `rtsp.disable_talkback` (or the per-camera `disable_talkback`) to turn it off.
 
 ## Endpoints
 

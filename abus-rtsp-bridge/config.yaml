@@ -1,5 +1,5 @@
 name: ABUS RTSP Bridge Beta
-version: "1.1.0-rc5"
+version: "1.1.0-rc6"
 slug: abus-rtsp-bridge
 description: Restream ABUS/JSW-family P2P cameras as RTSP, with PTZ/ONVIF/health support
 url: https://github.com/GimpArm/hassio-addons
@@ -29,6 +29,7 @@ options:
     port: 8554
     resolution: 0
     disable_audio: false
+    disable_talkback: false
   ptz:
     enabled: true
     http_host: 0.0.0.0
@@ -49,6 +50,7 @@ schema:
       timeout: float?
       resolution: int(0,4)?
       disable_audio: bool?
+      disable_talkback: bool?
       onvif_port: port?
       onvif_ws_discovery: bool?
       onvif_ptz_step: int(1,16)?
@@ -64,6 +66,7 @@ schema:
     url: str?  # legacy, migrated into bind_ip/port on first start
     resolution: int(0,4)?
     disable_audio: bool
+    disable_talkback: bool?
   ptz:
     enabled: bool
     http_host: str?
