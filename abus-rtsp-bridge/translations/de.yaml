@@ -1,7 +1,7 @@
 configuration:
   camera:
-    name: Kamera
-    description: Verbindungsdetails für die ABUS-Kamera
+    name: Kamera (veraltet)
+    description: Veraltete Einstellungen für eine einzelne Kamera - DID, Bind-IP und Ziel-IP werden beim ersten Start in die Kameraliste übernommen. Passwort und Erkennungs-Timeout bleiben die gemeinsamen Standardwerte aller Kameras.
     fields:
       did:
         name: DID
@@ -20,17 +20,26 @@ configuration:
         description: Sekunden, die auf die LAN-Erkennung gewartet wird, bevor auf den Cloud/P2P-Pfad zurückgegriffen wird
   rtsp:
     name: RTSP
-    description: Einstellungen für den ausgehenden RTSP-Stream
+    description: RTSP-Servereinstellungen für alle Kameras - jede Kamera ist unter rtsp://Host:Port/<Kameraname> erreichbar
     fields:
+      bind_ip:
+        name: Bind-IP
+        description: Adresse, auf der der RTSP-Server lauscht (Standard 0.0.0.0, alle Schnittstellen)
+      port:
+        name: Port
+        description: Von allen Kameras gemeinsam genutzter RTSP-Port (Standard 8554)
       url:
-        name: RTSP-URL
-        description: Ziel-RTSP-URL, unter der der Stream veröffentlicht wird
+        name: RTSP-URL (veraltet)
+        description: Veraltete Option, wird beim ersten Start in Bind-IP und Port übernommen
       resolution:
         name: Auflösung
         description: "Videoqualität: 0=Kameraeinstellung, 1=Full HD, 2=HD, 3=SD, 4=automatisch"
       disable_audio:
         name: Audio deaktivieren
         description: Den zweiten (Audio-)RTP-Stream deaktivieren
+      disable_talkback:
+        name: Gegensprechen deaktivieren
+        description: Zwei-Wege-Audio (ONVIF-RTSP-Audio-Backchannel) deaktivieren, sodass Clients nicht über den Kameralautsprecher sprechen können
   ptz:
     name: PTZ-REST-Server
     description: REST-API für Schwenken/Neigen/Zoom, Schnappschüsse und Zustandsprüfung
@@ -45,8 +54,8 @@ configuration:
         name: Port
         description: Port für den PTZ-REST-Server
   onvif:
-    name: ONVIF
-    description: ONVIF-Geräte-/Medien-/PTZ-Dienst, für NVRs wie Frigate
+    name: ONVIF (veraltet)
+    description: Veraltete ONVIF-Einstellungen für eine einzelne Kamera, werden beim ersten Start in die ONVIF-Optionen der Kamera übernommen und danach ignoriert
     fields:
       enabled:
         name: Aktiviert
@@ -86,9 +95,48 @@ configuration:
       skip_audio_start:
         name: Audiostart überspringen
         description: Diagnose-Testoption - deaktiviert lassen
+  cameras:
+    name: Kameras
+    description: Liste der Kameras. Die übrigen Abschnitte sind gemeinsame Standardwerte für alle Kameras; jeder Eintrag überschreibt sie. Jede Kamera benötigt eine DID und/oder Ziel-IP. Alle Kameras teilen sich den RTSP-Port und sind unter rtsp://Host:Port/name erreichbar. ONVIF ist für eine Kamera deaktiviert, solange sie keinen ONVIF-Port setzt. Die REST-API bleibt auf einem Port, mit dem Kameranamen als erstem Pfadsegment (z. B. /name/ptz/left).
+    fields:
+      name:
+        name: Name
+        description: Eindeutiger Name (Buchstaben, Ziffern, _ und -), verwendet in Logs und als RTSP-Pfad
+      did:
+        name: DID
+        description: Kamera-DID, z. B. ABCD-012345-EFGHI
+      password:
+        name: Passwort
+        description: Kamera-Ansichtspasswort - Standard ist das gemeinsame Kamera-Passwort
+      bind_ip:
+        name: Bind-IP
+        description: Lokale IPv4-Adresse, an die der Discovery-Socket gebunden wird
+      target_ip:
+        name: Ziel-IP
+        description: Bekannte Kamera-IP im selben LAN
+      timeout:
+        name: Erkennungs-Timeout
+        description: Sekunden, die auf die LAN-Erkennung gewartet wird, bevor auf den Cloud/P2P-Pfad zurückgegriffen wird
+      resolution:
+        name: Auflösung
+        description: "Videoqualität: 0=Kameraeinstellung, 1=Full HD, 2=HD, 3=SD, 4=automatisch"
+      disable_audio:
+        name: Audio deaktivieren
+        description: Den zweiten (Audio-)RTP-Stream deaktivieren
+      disable_talkback:
+        name: Gegensprechen deaktivieren
+        description: Zwei-Wege-Audio für diese Kamera deaktivieren
+      onvif_port:
+        name: ONVIF-Port
+        description: Aktiviert ONVIF für diese Kamera auf diesem Port (muss eindeutig sein). Leer = ONVIF deaktiviert.
+      onvif_ws_discovery:
+        name: ONVIF-WS-Discovery
+        description: WS-Discovery (UDP-Multicast) für den ONVIF-Dienst dieser Kamera aktivieren. Nur mit ONVIF-Port wirksam.
+      onvif_ptz_step:
+        name: ONVIF-PTZ-Schrittweite
+        description: Wie weit ein ONVIF-PTZ-Klick die Kamera bewegt (Skala 1-16). Nur mit ONVIF-Port wirksam.
 
 network:
-  8554/tcp: RTSP-Stream-Port
-  8080/tcp: PTZ-/Schnappschuss-/Health-REST-API-Port
-  8000/tcp: ONVIF-SOAP-Dienst-Port
-  3702/udp: WS-Discovery-Multicast-Port für ONVIF
+  8554/tcp: RTSP-Port (alle Kameras, unterschieden nach Pfad)
+  8080/tcp: PTZ-/Schnappschuss-/Health-REST-API-Port (alle Kameras)
+  3702/udp: WS-Discovery-Multicast-Port für ONVIF-Kameras

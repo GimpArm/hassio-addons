@@ -1,5 +1,5 @@
 name: ABUS RTSP Bridge
-version: "1.0.1"
+version: "1.1.0"
 slug: abus-rtsp-bridge
 description: Restream ABUS/JSW-family P2P cameras as RTSP, with PTZ/ONVIF/health support
 url: https://github.com/GimpArm/hassio-addons
@@ -14,36 +14,46 @@ watchdog: "http://[HOST]:[PORT:8080]/health"
 ports:
   8554/tcp: 8554
   8080/tcp: 8080
-  8000/tcp: 8000
   3702/udp: 3702
 ports_description:
-  8554/tcp: RTSP port
-  8080/tcp: PTZ/snapshot/health REST port
-  8000/tcp: ONVIF port
-  3702/udp: WS-Discovery for ONVIF port
+  8554/tcp: RTSP port (all cameras, told apart by path)
+  8080/tcp: PTZ/snapshot/health REST port (all cameras)
+  3702/udp: WS-Discovery for ONVIF cameras
 options:
+  cameras: []
   camera:
     password: null
     timeout: 5.0
   rtsp:
-    url: rtsp://0.0.0.0:8554/abus
+    bind_ip: 0.0.0.0
+    port: 8554
     resolution: 0
     disable_audio: false
+    disable_talkback: false
   ptz:
     enabled: true
     http_host: 0.0.0.0
     http_port: 8080
-  onvif:
-    enabled: true
-    ws_discovery: true
-    port: 8000
-    ptz_step: 2
+  onvif: {}
   auth: {}
   diagnostics:
     debug: false
     skip_video_start: false
     skip_audio_start: false
 schema:
+  cameras:
+    - name: str
+      did: str?
+      password: password?
+      bind_ip: str?
+      target_ip: str?
+      timeout: float?
+      resolution: int(0,4)?
+      disable_audio: bool?
+      disable_talkback: bool?
+      onvif_port: port?
+      onvif_ws_discovery: bool?
+      onvif_ptz_step: int(1,16)?
   camera:
     did: str?
     password: password
@@ -51,16 +61,20 @@ schema:
     target_ip: str?
     timeout: float?
   rtsp:
-    url: str?
+    bind_ip: str?
+    port: port?
+    url: str?  # legacy, migrated into bind_ip/port on first start
     resolution: int(0,4)?
     disable_audio: bool
+    disable_talkback: bool?
   ptz:
     enabled: bool
     http_host: str?
     http_port: port?
+  # Legacy single-camera settings - migrated into cameras[].onvif_* on first start, ignored otherwise.
   onvif:
-    enabled: bool
-    ws_discovery: bool
+    enabled: bool?
+    ws_discovery: bool?
     port: port?
     ptz_step: int(1,16)?
   auth:
@@ -71,4 +85,4 @@ schema:
     dump_raw: str?
     skip_video_start: bool
     skip_audio_start: bool
-image: gimparm/abus-rtsp-bridge
+image: gimparm/abus-rtsp-bridge-ha
