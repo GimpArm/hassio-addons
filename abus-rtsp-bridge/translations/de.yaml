@@ -86,6 +86,40 @@ configuration:
       skip_audio_start:
         name: Audiostart überspringen
         description: Diagnose-Testoption - deaktiviert lassen
+  cameras:
+    name: Kameras
+    description: Optionale Liste für den Betrieb mehrerer Kameras. Die obigen Abschnitte werden zu gemeinsamen Standardwerten; jeder Eintrag überschreibt sie. Jede Kamera benötigt eine DID und/oder Ziel-IP. Sofern nicht überschrieben, erhält Kamera N (ab 0) den RTSP-Port 8554+N mit Pfad /name und ONVIF-Port 8000+N. Die REST-API bleibt auf einem Port, mit dem Kameranamen als erstem Pfadsegment (z. B. /name/ptz/left).
+    fields:
+      name:
+        name: Name
+        description: Eindeutiger Name (Buchstaben, Ziffern, _ und -), verwendet in Logs und als RTSP-Pfad
+      did:
+        name: DID
+        description: Kamera-DID, z. B. ABCD-012345-EFGHI
+      password:
+        name: Passwort
+        description: Kamera-Ansichtspasswort - Standard ist das gemeinsame Kamera-Passwort
+      bind_ip:
+        name: Bind-IP
+        description: Lokale IPv4-Adresse, an die der Discovery-Socket gebunden wird
+      target_ip:
+        name: Ziel-IP
+        description: Bekannte Kamera-IP im selben LAN
+      timeout:
+        name: Erkennungs-Timeout
+        description: Sekunden, die auf die LAN-Erkennung gewartet wird, bevor auf den Cloud/P2P-Pfad zurückgegriffen wird
+      rtsp_url:
+        name: RTSP-URL
+        description: Überschreibt die abgeleitete RTSP-URL (Port und Pfad)
+      resolution:
+        name: Auflösung
+        description: "Videoqualität: 0=Kameraeinstellung, 1=Full HD, 2=HD, 3=SD, 4=automatisch"
+      disable_audio:
+        name: Audio deaktivieren
+        description: Den zweiten (Audio-)RTP-Stream deaktivieren
+      onvif_port:
+        name: ONVIF-Port
+        description: Überschreibt den abgeleiteten Port des ONVIF-Dienstes
 
 network:
   8554/tcp: RTSP-Stream-Port
