@@ -1,6 +1,6 @@
 FROM gimparm/abus-rtsp-bridge:1.1.0-rc2 AS abus-rtsp-bridge
 
-FROM ghcr.io/home-assistant/base-debian:latest AS Base
+FROM ghcr.io/home-assistant/base-debian:latest AS base
 
 # Supplied automatically by the Supervisor/builder; default here only so `docker build` works
 # standalone too. Do NOT hardcode a single arch/version - this add-on is published for
