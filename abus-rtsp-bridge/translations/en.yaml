@@ -1,23 +1,4 @@
 configuration:
-  camera:
-    name: Camera (legacy)
-    description: Legacy single-camera settings - DID, Bind IP and Target IP are migrated into the cameras list on first start. Password and discovery timeout remain the defaults shared by all cameras.
-    fields:
-      did:
-        name: DID
-        description: Camera DID, e.g. ABCD-012345-EFGHI. Required for the cloud/P2P fallback if the camera isn't on the same LAN.
-      password:
-        name: Password
-        description: Camera view password / security code (the same one the phone app uses)
-      bind_ip:
-        name: Bind IP
-        description: Local IPv4 to bind the discovery socket to - leave blank to auto-select
-      target_ip:
-        name: Target IP
-        description: Known camera IP on the same LAN - skips broadcast discovery
-      timeout:
-        name: Discovery timeout
-        description: Seconds to wait for LAN discovery before falling back to the cloud/P2P path
   rtsp:
     name: RTSP
     description: RTSP server settings shared by all cameras - each camera is served at rtsp://host:port/<camera name>
@@ -28,9 +9,6 @@ configuration:
       port:
         name: Port
         description: RTSP port shared by all cameras (default 8554)
-      url:
-        name: RTSP URL (legacy)
-        description: Legacy option, migrated into Bind IP and Port on first start
       resolution:
         name: Resolution
         description: "Video quality: 0=by camera setting, 1=Full HD, 2=HD, 3=SD, 4=automatic"
@@ -53,22 +31,6 @@ configuration:
       http_port:
         name: Port
         description: Port for the PTZ REST server
-  onvif:
-    name: ONVIF (legacy)
-    description: Legacy single-camera ONVIF settings, migrated into each camera's ONVIF options on first start and ignored once cameras are configured
-    fields:
-      enabled:
-        name: Enabled
-        description: Enable the ONVIF service
-      ws_discovery:
-        name: WS-Discovery
-        description: Enable WS-Discovery (UDP multicast) so NVRs can auto-discover the ONVIF service
-      port:
-        name: Port
-        description: ONVIF SOAP service port
-      ptz_step:
-        name: PTZ step size
-        description: How far one ONVIF PTZ click moves the camera (1-16 scale)
   auth:
     name: Authentication
     description: Optional HTTP/RTSP Basic auth shared by the RTSP stream, ONVIF service, and PTZ REST server
@@ -97,7 +59,7 @@ configuration:
         description: Diagnostic test flag - leave off
   cameras:
     name: Cameras
-    description: List of cameras. The other sections act as defaults shared by every camera; each entry overrides them. Every camera needs a DID and/or target IP. All cameras share the RTSP port and are served at rtsp://host:port/name. ONVIF is off for a camera unless it sets an ONVIF port. The REST API stays on one port, with the camera name as the first path segment (e.g. /name/ptz/left).
+    description: List of cameras (at least one). The rtsp, ptz, auth and diagnostics sections are shared by every camera; resolution, audio and talkback there are defaults each entry can override. Every camera needs a password, and a DID and/or target IP. All cameras share the RTSP port and are served at rtsp://host:port/name. ONVIF is off for a camera unless it sets an ONVIF port. The REST API stays on one port, with the camera name as the first path segment (e.g. /name/ptz/left).
     fields:
       name:
         name: Name
@@ -107,7 +69,7 @@ configuration:
         description: Camera DID, e.g. ABCD-012345-EFGHI
       password:
         name: Password
-        description: Camera view password - defaults to the shared camera password
+        description: Camera view password / security code (the same one the phone app uses)
       bind_ip:
         name: Bind IP
         description: Local IPv4 to bind the discovery socket to

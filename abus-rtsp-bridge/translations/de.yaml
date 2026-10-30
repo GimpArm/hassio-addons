@@ -1,23 +1,4 @@
 configuration:
-  camera:
-    name: Kamera (veraltet)
-    description: Veraltete Einstellungen für eine einzelne Kamera - DID, Bind-IP und Ziel-IP werden beim ersten Start in die Kameraliste übernommen. Passwort und Erkennungs-Timeout bleiben die gemeinsamen Standardwerte aller Kameras.
-    fields:
-      did:
-        name: DID
-        description: Kamera-DID, z. B. ABCD-012345-EFGHI. Erforderlich für den Cloud/P2P-Fallback, wenn sich die Kamera nicht im selben LAN befindet.
-      password:
-        name: Passwort
-        description: Kamera-Ansichtspasswort / Sicherheitscode (dasselbe wie in der Telefon-App)
-      bind_ip:
-        name: Bind-IP
-        description: Lokale IPv4-Adresse, an die der Discovery-Socket gebunden wird - leer lassen für automatische Auswahl
-      target_ip:
-        name: Ziel-IP
-        description: Bekannte Kamera-IP im selben LAN - überspringt die Broadcast-Erkennung
-      timeout:
-        name: Erkennungs-Timeout
-        description: Sekunden, die auf die LAN-Erkennung gewartet wird, bevor auf den Cloud/P2P-Pfad zurückgegriffen wird
   rtsp:
     name: RTSP
     description: RTSP-Servereinstellungen für alle Kameras - jede Kamera ist unter rtsp://Host:Port/<Kameraname> erreichbar
@@ -28,9 +9,6 @@ configuration:
       port:
         name: Port
         description: Von allen Kameras gemeinsam genutzter RTSP-Port (Standard 8554)
-      url:
-        name: RTSP-URL (veraltet)
-        description: Veraltete Option, wird beim ersten Start in Bind-IP und Port übernommen
       resolution:
         name: Auflösung
         description: "Videoqualität: 0=Kameraeinstellung, 1=Full HD, 2=HD, 3=SD, 4=automatisch"
@@ -53,22 +31,6 @@ configuration:
       http_port:
         name: Port
         description: Port für den PTZ-REST-Server
-  onvif:
-    name: ONVIF (veraltet)
-    description: Veraltete ONVIF-Einstellungen für eine einzelne Kamera, werden beim ersten Start in die ONVIF-Optionen der Kamera übernommen und danach ignoriert
-    fields:
-      enabled:
-        name: Aktiviert
-        description: ONVIF-Dienst aktivieren
-      ws_discovery:
-        name: WS-Discovery
-        description: WS-Discovery (UDP-Multicast) aktivieren, damit NVRs den ONVIF-Dienst automatisch erkennen können
-      port:
-        name: Port
-        description: Port des ONVIF-SOAP-Dienstes
-      ptz_step:
-        name: PTZ-Schrittweite
-        description: Wie weit ein ONVIF-PTZ-Klick die Kamera bewegt (Skala 1-16)
   auth:
     name: Authentifizierung
     description: Optionale HTTP/RTSP-Basisauthentifizierung, gemeinsam genutzt von RTSP-Stream, ONVIF-Dienst und PTZ-REST-Server
@@ -97,7 +59,7 @@ configuration:
         description: Diagnose-Testoption - deaktiviert lassen
   cameras:
     name: Kameras
-    description: Liste der Kameras. Die übrigen Abschnitte sind gemeinsame Standardwerte für alle Kameras; jeder Eintrag überschreibt sie. Jede Kamera benötigt eine DID und/oder Ziel-IP. Alle Kameras teilen sich den RTSP-Port und sind unter rtsp://Host:Port/name erreichbar. ONVIF ist für eine Kamera deaktiviert, solange sie keinen ONVIF-Port setzt. Die REST-API bleibt auf einem Port, mit dem Kameranamen als erstem Pfadsegment (z. B. /name/ptz/left).
+    description: Liste der Kameras (mindestens eine). Die Abschnitte rtsp, ptz, auth und diagnostics gelten für alle Kameras; Auflösung, Audio und Gegensprechen sind dort Standardwerte, die jeder Eintrag überschreiben kann. Jede Kamera benötigt ein Passwort sowie eine DID und/oder Ziel-IP. Alle Kameras teilen sich den RTSP-Port und sind unter rtsp://Host:Port/name erreichbar. ONVIF ist für eine Kamera deaktiviert, solange sie keinen ONVIF-Port setzt. Die REST-API bleibt auf einem Port, mit dem Kameranamen als erstem Pfadsegment (z. B. /name/ptz/left).
     fields:
       name:
         name: Name
@@ -107,7 +69,7 @@ configuration:
         description: Kamera-DID, z. B. ABCD-012345-EFGHI
       password:
         name: Passwort
-        description: Kamera-Ansichtspasswort - Standard ist das gemeinsame Kamera-Passwort
+        description: Kamera-Ansichtspasswort / Sicherheitscode (dasselbe wie in der Telefon-App)
       bind_ip:
         name: Bind-IP
         description: Lokale IPv4-Adresse, an die der Discovery-Socket gebunden wird

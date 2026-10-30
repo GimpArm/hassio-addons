@@ -1,3 +1,8 @@
+## Version 1.2.1
+
+- Removed single camera support to simplify the configuration code. Now only multi camera is available
+- Added ability to play a sound 
+
 ## Version 1.1.0
 
 **Warning: This upgrade requires changes to your config. There is an attempt to migrate but this may fail and it is recommended to backup you config before upgrading.**
