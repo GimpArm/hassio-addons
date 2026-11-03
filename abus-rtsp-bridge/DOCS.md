@@ -99,7 +99,7 @@ stream's CPU use. Set `rtsp.disable_talkback` (or the per-camera `disable_talkba
 
 - RTSP streams: `rtsp://<host>:8554/<camera name>`
 - PTZ/snapshot/health REST API: `http://<host>:8080/<camera name>/...` (`/ptz/<direction>`,
-  `/snapshot`, `/siren/<on|off>`, `/light/<on|off>`, and `POST /audio?audio=<mp3 url>` to play
+  `/snapshot`, `/siren/<on|off>`, `/light/<on|off>`, and `POST /play?source=<mp3 url>` to play
   a sound on the camera's speaker - see the main project's README for the full list), plus
   `http://<host>:8080/cameras` and `http://<host>:8080/health`
 - ONVIF (only for cameras with `onvif_port`): `http://<host>:<onvif_port>/onvif/device_service`

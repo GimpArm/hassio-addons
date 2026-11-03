@@ -18,6 +18,9 @@ configuration:
       disable_talkback:
         name: Gegensprechen deaktivieren
         description: Zwei-Wege-Audio (ONVIF-RTSP-Audio-Backchannel) deaktivieren, sodass Clients nicht über den Kameralautsprecher sprechen können
+      keep_stream_open:
+        name: Stream offen halten
+        description: Den Kamerastream nach dem Trennen des letzten RTSP-Clients weiterlaufen lassen, statt ihn zu stoppen, damit der nächste Client schneller ein Bild bekommt
   ptz:
     name: PTZ-REST-Server
     description: REST-API für Schwenken/Neigen/Zoom, Schnappschüsse und Zustandsprüfung
@@ -64,6 +67,9 @@ configuration:
       name:
         name: Name
         description: Eindeutiger Name (Buchstaben, Ziffern, _ und -), verwendet in Logs und als RTSP-Pfad
+      disabled:
+        name: Deaktiviert
+        description: Diese Kamera überspringen, ohne sie aus der Liste zu entfernen
       did:
         name: DID
         description: Kamera-DID, z. B. ABCD-012345-EFGHI
@@ -88,6 +94,9 @@ configuration:
       disable_talkback:
         name: Gegensprechen deaktivieren
         description: Zwei-Wege-Audio für diese Kamera deaktivieren
+      keep_stream_open:
+        name: Stream offen halten
+        description: Den Stream dieser Kamera nach dem Trennen des letzten RTSP-Clients weiterlaufen lassen
       onvif_port:
         name: ONVIF-Port
         description: Aktiviert ONVIF für diese Kamera auf diesem Port (muss eindeutig sein). Leer = ONVIF deaktiviert.

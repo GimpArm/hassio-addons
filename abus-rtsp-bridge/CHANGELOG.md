@@ -1,3 +1,9 @@
+## Version 1.2.2
+
+- Improved connection stability
+- Added option to disable a camera
+- Added option to keep the stream always open even if the client disconnects
+
 ## Version 1.2.1
 
 - Removed single camera support to simplify the configuration code. Now only multi camera is available
