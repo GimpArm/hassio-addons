@@ -1,3 +1,7 @@
+## Version 1.2.3
+
+- Still trying to improve the connection stability
+
 ## Version 1.2.2
 
 - Improved connection stability
